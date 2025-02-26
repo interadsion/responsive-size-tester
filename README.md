@@ -14,7 +14,7 @@ It allows users to enter a website URL, specify a width and height, and preview 
 3. Click the "Test" button to view the site in the specified screen size.
 
 ## Live Demo
-[View the live site here](https://interadsion.github.io/responsive-tester/)  
+[View the live site here](https://interadsion.github.io/responsive-size-tester/)  
 
 ## Contributing
 Feel free to fork the repo and submit pull requests to improve the project.
