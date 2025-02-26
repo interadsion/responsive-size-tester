@@ -3,24 +3,29 @@ function updateIframe() {
     var inputWidth = parseInt(document.getElementById("widthInput").value);
     var inputHeight = parseInt(document.getElementById("heightInput").value);
 
-    var maxCanvasWidth = window.innerWidth * 0.8; // The middle frame should be 80% of screen width
-    var maxCanvasHeight = window.innerHeight * 0.8; // The middle frame should be 80% of screen height
+    var screenWidth = window.innerWidth - 40; // Allow some margin
+    var screenHeight = window.innerHeight - 150; // Allow some margin
 
-    // Calculate scaling factor
-    var scaleX = maxCanvasWidth / inputWidth;
-    var scaleY = maxCanvasHeight / inputHeight;
-    var scale = Math.min(scaleX, scaleY, 1); // Scale down but never enlarge
+    // Calculate aspect ratio
+    var aspectRatio = inputWidth / inputHeight;
 
-    // Apply new iframe properties
-    var iframeWrapper = document.getElementById("iframeWrapper");
+    // Adjust width and height to fit within the screen
+    var finalWidth = inputWidth;
+    var finalHeight = inputHeight;
+
+    if (finalWidth > screenWidth) {
+        finalWidth = screenWidth;
+        finalHeight = finalWidth / aspectRatio;
+    }
+
+    if (finalHeight > screenHeight) {
+        finalHeight = screenHeight;
+        finalWidth = finalHeight * aspectRatio;
+    }
+
+    // Apply new width and height
     var iframe = document.getElementById("previewFrame");
-
     iframe.src = url;
-    iframe.style.width = inputWidth + "px";
-    iframe.style.height = inputHeight + "px";
-    iframe.style.transform = `scale(${scale})`;
-    iframe.style.transformOrigin = "top left"; // Ensures proper scaling
-
-    iframeWrapper.style.width = inputWidth * scale + "px";
-    iframeWrapper.style.height = inputHeight * scale + "px";
+    iframe.style.width = finalWidth + "px";
+    iframe.style.height = finalHeight + "px";
 }
