@@ -26,18 +26,11 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 200px); /* Keeps iframe centered in available space */
     overflow: hidden;
 }
 
-#iframeWrapper {
-    position: relative;
-    display: inline-block;
-    background: white;
-    border: 1px solid #ccc;
-}
-
 iframe {
-    border: none;
-    display: block;
+    border: 1px solid #ccc;
+    background: white;
 }
