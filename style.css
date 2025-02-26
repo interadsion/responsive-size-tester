@@ -1,36 +1,59 @@
 body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
+    background-color: #202124;
+    color: white;
 }
 
 .container {
-    max-width: 800px;
-    margin: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.controls {
+    padding: 10px;
+    background-color: #292a2d;
+    border-bottom: 1px solid #3c4043;
+    text-align: center;
 }
 
 .controls input {
     margin: 5px;
-    padding: 10px;
-    width: 180px;
+    padding: 5px 10px;
+    background: #202124;
+    border: 1px solid #3c4043;
+    color: white;
+    border-radius: 4px;
 }
 
 button {
-    padding: 10px 15px;
-    margin: 5px;
+    padding: 5px 15px;
+    background: #8ab4f8;
+    color: #202124;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-.preview {
-    margin-top: 20px;
+.device-view {
+    flex: 1;
+    overflow: hidden;
+    background: #202124;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: calc(100vh - 200px); /* Keeps iframe centered in available space */
-    overflow: hidden;
+    align-items: start;
+}
+
+.device-container {
+    margin: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transform-origin: top center;
 }
 
 iframe {
-    border: 1px solid #ccc;
-    background: white;
+    border: none;
+    display: block;
 }
