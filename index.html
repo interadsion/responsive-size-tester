@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Tester</title>
+  <title>Device Mode Tester</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Responsive Tester</h1>
     <div class="controls">
       <input type="text" id="urlInput" placeholder="Enter URL" value="https://example.com">
-      <input type="number" id="widthInput" placeholder="Width" value="1024">
-      <input type="number" id="heightInput" placeholder="Height" value="768">
+      <input type="number" id="widthInput" placeholder="Width" value="1920">
+      <input type="number" id="heightInput" placeholder="Height" value="1080">
       <button onclick="updateIframe()">Test</button>
     </div>
-    <div class="preview">
-      <iframe id="previewFrame" src="https://example.com" width="1024" height="768"></iframe>
+    <div class="device-view">
+      <div class="device-container">
+        <iframe id="previewFrame" src="https://example.com"></iframe>
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
