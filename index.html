@@ -13,12 +13,17 @@
       <input type="number" id="widthInput" placeholder="Width" value="1920">
       <input type="number" id="heightInput" placeholder="Height" value="1080">
       <button onclick="updateIframe()">Test</button>
+      <button onclick="clearCache()" class="secondary">Clear Cache</button>
+      <button onclick="saveSettings()" class="secondary">Save Settings</button>
     </div>
     <div class="device-view">
       <div class="device-container">
         <iframe id="previewFrame" src="https://example.com"></iframe>
       </div>
     </div>
+    <footer>
+      <a href="https://interadsion.com" target="_blank"><span id="currentYear">Interadsion Studio @ 2024</span></a>
+    </footer>
   </div>
   <script src="script.js"></script>
 </body>
