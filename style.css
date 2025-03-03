@@ -37,6 +37,16 @@ button {
     cursor: pointer;
 }
 
+button.secondary {
+    background: #3c4043;
+    color: white;
+    margin-left: 5px;
+}
+
+button.secondary:hover {
+    background: #4e5256;
+}
+
 .device-view {
     flex: 1;
     overflow: hidden;
@@ -56,4 +66,21 @@ button {
 iframe {
     border: none;
     display: block;
+}
+
+footer {
+    background-color: #292a2d;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #3c4043;
+    font-size: 14px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
