@@ -3,6 +3,11 @@ function updateIframe() {
     const width = document.getElementById("widthInput").value;
     const height = document.getElementById("heightInput").value;
     
+    // Save to localStorage
+    localStorage.setItem('savedUrl', url);
+    localStorage.setItem('savedWidth', width);
+    localStorage.setItem('savedHeight', height);
+    
     const iframe = document.getElementById("previewFrame");
     const container = document.querySelector('.device-container');
     const deviceView = document.querySelector('.device-view');
@@ -60,8 +65,57 @@ function updateIframe() {
     }
 }
 
-// Initial setup
-document.addEventListener('DOMContentLoaded', updateIframe);
+function clearCache() {
+    const iframe = document.getElementById("previewFrame");
+    const url = document.getElementById("urlInput").value;
+    
+    // Force a complete reload by adding a timestamp
+    const timestamp = new Date().getTime();
+    const hasQuery = url.includes('?');
+    const newUrl = url + (hasQuery ? '&' : '?') + 'cache=' + timestamp;
+    
+    iframe.src = 'about:blank';
+    
+    // Use a longer timeout to ensure about:blank is loaded
+    setTimeout(() => {
+        iframe.src = newUrl;
+    }, 200);
+}
+
+function saveSettings() {
+    const url = document.getElementById("urlInput").value;
+    const width = document.getElementById("widthInput").value;
+    const height = document.getElementById("heightInput").value;
+    
+    localStorage.setItem('savedUrl', url);
+    localStorage.setItem('savedWidth', width);
+    localStorage.setItem('savedHeight', height);
+    
+    alert('Settings saved!');
+}
+
+// Load saved settings on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedUrl = localStorage.getItem('savedUrl');
+    const savedWidth = localStorage.getItem('savedWidth');
+    const savedHeight = localStorage.getItem('savedHeight');
+    
+    if (savedUrl) document.getElementById("urlInput").value = savedUrl;
+    if (savedWidth) document.getElementById("widthInput").value = savedWidth;
+    if (savedHeight) document.getElementById("heightInput").value = savedHeight;
+    
+    updateIframe();
+});
+
+// Handle Enter key press
+document.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        updateIframe();
+    }
+});
 
 // Add resize handler
 window.addEventListener('resize', updateIframe);
+
+// Add this at the end of the file
+document.getElementById('currentYear').textContent = `Interadsion Studio @ ${new Date().getFullYear()}`;
