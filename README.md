@@ -1,4 +1,4 @@
-# Responsive Tester
+# Responsive Tester V2
 
 A simple tool to test websites on custom screen sizes.  
 It allows users to enter a website URL, specify a width and height, and preview how the site looks at that size.
@@ -7,6 +7,8 @@ It allows users to enter a website URL, specify a width and height, and preview 
 - Enter any website URL
 - Set custom width and height
 - Live preview in an iframe
+- Save URL and screen size settings
+- Clear browser cache for the tested link
 
 ## How to Use
 1. Enter the URL of the website you want to test.
